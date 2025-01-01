@@ -8,7 +8,7 @@ SL.polymars <- function(Y, X, newX, family, obsWeights, ...){
 		fit <- list(object = fit.mars)
 	}
 	if(family$family == "binomial") {
-		fit.mars <- polspline::polyclass(Y, X, cv = 5, weight = obsWeights)
+		fit.mars <- polspline::polyclass(Y, X, weight = obsWeights)
 		pred <- polspline::ppolyclass(cov = newX, fit = fit.mars)[, 2]
 		fit <- list(fit = fit.mars)
 	}
